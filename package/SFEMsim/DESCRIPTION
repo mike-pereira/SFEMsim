@@ -1,0 +1,12 @@
+Package: SFEMsim
+Type: Package
+Title: Sampling of Gaussian random fields on compact 1-manifolds or 2-manifolds using Galerkin-Chebyshev approximation.
+Version: 1.0.1
+Author: Mike Pereira
+Maintainer: Mike Pereira <mike.pereira@minesparis.psl.eu>
+Description: Sampling of Gaussian random fields on compact 1-manifolds or 2-manifolds using Galerkin-Chebyshev approximation.
+License: Private
+Encoding: UTF-8
+Imports: Rcpp, RcppEigen, parallel, Matrix, fields
+LinkingTo: Rcpp, RcppEigen
+RoxygenNote: 7.2.3
