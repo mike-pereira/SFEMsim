@@ -221,3 +221,43 @@ matFEM1d <- function(nodeMat, triMat, triMetricMat, triPotCoeffs = NULL, triDiff
     .Call('_SFEMsim_matFEM1d', PACKAGE = 'SFEMsim', nodeMat, triMat, triMetricMat, triPotCoeffs, triDiffCoeffs, massLumping)
 }
 
+argSort <- function(array) {
+    .Call('_SFEMsim_argSort', PACKAGE = 'SFEMsim', array)
+}
+
+sphBarCoordBT <- function(sphPts, nodeMat, triMat, triBar) {
+    .Call('_SFEMsim_sphBarCoordBT', PACKAGE = 'SFEMsim', sphPts, nodeMat, triMat, triBar)
+}
+
+BT <- function(triBar, query) {
+    .Call('_SFEMsim_BT', PACKAGE = 'SFEMsim', triBar, query)
+}
+
+main <- function() {
+    .Call('_SFEMsim_main', PACKAGE = 'SFEMsim')
+}
+
+simChebChol <- function(C, R, Coefs, a, b, V) {
+    .Call('_SFEMsim_simChebChol', PACKAGE = 'SFEMsim', C, R, Coefs, a, b, V)
+}
+
+projectNoise <- function(C_fine, C_coarse, Amat, W) {
+    .Call('_SFEMsim_projectNoise', PACKAGE = 'SFEMsim', C_fine, C_coarse, Amat, W)
+}
+
+rayTriangleIntersect <- function(dir, v0, v1, v2) {
+    .Call('_SFEMsim_rayTriangleIntersect', PACKAGE = 'SFEMsim', dir, v0, v1, v2)
+}
+
+sphBarCoord <- function(sphPts, nodeMat, triMat) {
+    .Call('_SFEMsim_sphBarCoord', PACKAGE = 'SFEMsim', sphPts, nodeMat, triMat)
+}
+
+sphBarCoordFast <- function(sphPts, nodeMat, triMat, triBar) {
+    .Call('_SFEMsim_sphBarCoordFast', PACKAGE = 'SFEMsim', sphPts, nodeMat, triMat, triBar)
+}
+
+sphAnglesBarCoord <- function(sphPtsAngles, nodeMat, triMat) {
+    .Call('_SFEMsim_sphAnglesBarCoord', PACKAGE = 'SFEMsim', sphPtsAngles, nodeMat, triMat)
+}
+

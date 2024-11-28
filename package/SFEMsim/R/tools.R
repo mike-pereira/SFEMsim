@@ -85,7 +85,8 @@ plotOnMesh<-function(zplt,msh,col=NULL,ttl="",zlim="range",windowSize=800){
           edges="black",
           material=list(lit=F))
   par3d(windowRect = c(0, 0, windowSize, windowSize))
-  bgplot3d(image.plot(legend.only = TRUE, zlim = range(zplt), col = col,legend.width = 0.8) )
+  bgplot3d({image.plot(legend.only = TRUE, zlim = range(zplt), col = col,legend.width = 0.8)
+           title(main = ttl, line = 0,cex.main=3)})
 
 }
 

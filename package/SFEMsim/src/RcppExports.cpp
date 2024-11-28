@@ -115,6 +115,137 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// argSort
+std::vector<int> argSort(const Eigen::ArrayXd& array);
+RcppExport SEXP _SFEMsim_argSort(SEXP arraySEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const Eigen::ArrayXd& >::type array(arraySEXP);
+    rcpp_result_gen = Rcpp::wrap(argSort(array));
+    return rcpp_result_gen;
+END_RCPP
+}
+// sphBarCoordBT
+Eigen::MatrixXd sphBarCoordBT(Eigen::MatrixXd& sphPts, Eigen::MatrixXd& nodeMat, Eigen::ArrayXXi& triMat, Eigen::MatrixXd& triBar);
+RcppExport SEXP _SFEMsim_sphBarCoordBT(SEXP sphPtsSEXP, SEXP nodeMatSEXP, SEXP triMatSEXP, SEXP triBarSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Eigen::MatrixXd& >::type sphPts(sphPtsSEXP);
+    Rcpp::traits::input_parameter< Eigen::MatrixXd& >::type nodeMat(nodeMatSEXP);
+    Rcpp::traits::input_parameter< Eigen::ArrayXXi& >::type triMat(triMatSEXP);
+    Rcpp::traits::input_parameter< Eigen::MatrixXd& >::type triBar(triBarSEXP);
+    rcpp_result_gen = Rcpp::wrap(sphBarCoordBT(sphPts, nodeMat, triMat, triBar));
+    return rcpp_result_gen;
+END_RCPP
+}
+// BT
+std::vector<int> BT(Eigen::MatrixXd& triBar, Eigen::VectorXd query);
+RcppExport SEXP _SFEMsim_BT(SEXP triBarSEXP, SEXP querySEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Eigen::MatrixXd& >::type triBar(triBarSEXP);
+    Rcpp::traits::input_parameter< Eigen::VectorXd >::type query(querySEXP);
+    rcpp_result_gen = Rcpp::wrap(BT(triBar, query));
+    return rcpp_result_gen;
+END_RCPP
+}
+// main
+int main();
+RcppExport SEXP _SFEMsim_main() {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    rcpp_result_gen = Rcpp::wrap(main());
+    return rcpp_result_gen;
+END_RCPP
+}
+// simChebChol
+Eigen::MatrixXd simChebChol(Eigen::SparseMatrix<double> C, Eigen::SparseMatrix<double> R, Eigen::VectorXd Coefs, double a, double b, Eigen::MatrixXd V);
+RcppExport SEXP _SFEMsim_simChebChol(SEXP CSEXP, SEXP RSEXP, SEXP CoefsSEXP, SEXP aSEXP, SEXP bSEXP, SEXP VSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Eigen::SparseMatrix<double> >::type C(CSEXP);
+    Rcpp::traits::input_parameter< Eigen::SparseMatrix<double> >::type R(RSEXP);
+    Rcpp::traits::input_parameter< Eigen::VectorXd >::type Coefs(CoefsSEXP);
+    Rcpp::traits::input_parameter< double >::type a(aSEXP);
+    Rcpp::traits::input_parameter< double >::type b(bSEXP);
+    Rcpp::traits::input_parameter< Eigen::MatrixXd >::type V(VSEXP);
+    rcpp_result_gen = Rcpp::wrap(simChebChol(C, R, Coefs, a, b, V));
+    return rcpp_result_gen;
+END_RCPP
+}
+// projectNoise
+Eigen::MatrixXd projectNoise(Eigen::SparseMatrix<double> C_fine, Eigen::SparseMatrix<double> C_coarse, Eigen::SparseMatrix<double> Amat, Eigen::MatrixXd W);
+RcppExport SEXP _SFEMsim_projectNoise(SEXP C_fineSEXP, SEXP C_coarseSEXP, SEXP AmatSEXP, SEXP WSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Eigen::SparseMatrix<double> >::type C_fine(C_fineSEXP);
+    Rcpp::traits::input_parameter< Eigen::SparseMatrix<double> >::type C_coarse(C_coarseSEXP);
+    Rcpp::traits::input_parameter< Eigen::SparseMatrix<double> >::type Amat(AmatSEXP);
+    Rcpp::traits::input_parameter< Eigen::MatrixXd >::type W(WSEXP);
+    rcpp_result_gen = Rcpp::wrap(projectNoise(C_fine, C_coarse, Amat, W));
+    return rcpp_result_gen;
+END_RCPP
+}
+// rayTriangleIntersect
+Eigen::VectorXd rayTriangleIntersect(Eigen::VectorXd dir, Eigen::VectorXd v0, Eigen::VectorXd v1, Eigen::VectorXd v2);
+RcppExport SEXP _SFEMsim_rayTriangleIntersect(SEXP dirSEXP, SEXP v0SEXP, SEXP v1SEXP, SEXP v2SEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Eigen::VectorXd >::type dir(dirSEXP);
+    Rcpp::traits::input_parameter< Eigen::VectorXd >::type v0(v0SEXP);
+    Rcpp::traits::input_parameter< Eigen::VectorXd >::type v1(v1SEXP);
+    Rcpp::traits::input_parameter< Eigen::VectorXd >::type v2(v2SEXP);
+    rcpp_result_gen = Rcpp::wrap(rayTriangleIntersect(dir, v0, v1, v2));
+    return rcpp_result_gen;
+END_RCPP
+}
+// sphBarCoord
+Eigen::MatrixXd sphBarCoord(Eigen::MatrixXd& sphPts, Eigen::MatrixXd& nodeMat, Eigen::ArrayXXi& triMat);
+RcppExport SEXP _SFEMsim_sphBarCoord(SEXP sphPtsSEXP, SEXP nodeMatSEXP, SEXP triMatSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Eigen::MatrixXd& >::type sphPts(sphPtsSEXP);
+    Rcpp::traits::input_parameter< Eigen::MatrixXd& >::type nodeMat(nodeMatSEXP);
+    Rcpp::traits::input_parameter< Eigen::ArrayXXi& >::type triMat(triMatSEXP);
+    rcpp_result_gen = Rcpp::wrap(sphBarCoord(sphPts, nodeMat, triMat));
+    return rcpp_result_gen;
+END_RCPP
+}
+// sphBarCoordFast
+Eigen::MatrixXd sphBarCoordFast(Eigen::MatrixXd& sphPts, Eigen::MatrixXd& nodeMat, Eigen::ArrayXXi& triMat, Eigen::ArrayXXd& triBar);
+RcppExport SEXP _SFEMsim_sphBarCoordFast(SEXP sphPtsSEXP, SEXP nodeMatSEXP, SEXP triMatSEXP, SEXP triBarSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Eigen::MatrixXd& >::type sphPts(sphPtsSEXP);
+    Rcpp::traits::input_parameter< Eigen::MatrixXd& >::type nodeMat(nodeMatSEXP);
+    Rcpp::traits::input_parameter< Eigen::ArrayXXi& >::type triMat(triMatSEXP);
+    Rcpp::traits::input_parameter< Eigen::ArrayXXd& >::type triBar(triBarSEXP);
+    rcpp_result_gen = Rcpp::wrap(sphBarCoordFast(sphPts, nodeMat, triMat, triBar));
+    return rcpp_result_gen;
+END_RCPP
+}
+// sphAnglesBarCoord
+Eigen::MatrixXd sphAnglesBarCoord(Eigen::ArrayXXd& sphPtsAngles, Eigen::MatrixXd& nodeMat, Eigen::ArrayXXi& triMat);
+RcppExport SEXP _SFEMsim_sphAnglesBarCoord(SEXP sphPtsAnglesSEXP, SEXP nodeMatSEXP, SEXP triMatSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Eigen::ArrayXXd& >::type sphPtsAngles(sphPtsAnglesSEXP);
+    Rcpp::traits::input_parameter< Eigen::MatrixXd& >::type nodeMat(nodeMatSEXP);
+    Rcpp::traits::input_parameter< Eigen::ArrayXXi& >::type triMat(triMatSEXP);
+    rcpp_result_gen = Rcpp::wrap(sphAnglesBarCoord(sphPtsAngles, nodeMat, triMat));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_SFEMsim_coefsChebApprox", (DL_FUNC) &_SFEMsim_coefsChebApprox, 5},
@@ -124,6 +255,16 @@ static const R_CallMethodDef CallEntries[] = {
     {"_SFEMsim_evalChebDecompMat", (DL_FUNC) &_SFEMsim_evalChebDecompMat, 4},
     {"_SFEMsim_matFEM2d", (DL_FUNC) &_SFEMsim_matFEM2d, 6},
     {"_SFEMsim_matFEM1d", (DL_FUNC) &_SFEMsim_matFEM1d, 6},
+    {"_SFEMsim_argSort", (DL_FUNC) &_SFEMsim_argSort, 1},
+    {"_SFEMsim_sphBarCoordBT", (DL_FUNC) &_SFEMsim_sphBarCoordBT, 4},
+    {"_SFEMsim_BT", (DL_FUNC) &_SFEMsim_BT, 2},
+    {"_SFEMsim_main", (DL_FUNC) &_SFEMsim_main, 0},
+    {"_SFEMsim_simChebChol", (DL_FUNC) &_SFEMsim_simChebChol, 6},
+    {"_SFEMsim_projectNoise", (DL_FUNC) &_SFEMsim_projectNoise, 4},
+    {"_SFEMsim_rayTriangleIntersect", (DL_FUNC) &_SFEMsim_rayTriangleIntersect, 4},
+    {"_SFEMsim_sphBarCoord", (DL_FUNC) &_SFEMsim_sphBarCoord, 3},
+    {"_SFEMsim_sphBarCoordFast", (DL_FUNC) &_SFEMsim_sphBarCoordFast, 4},
+    {"_SFEMsim_sphAnglesBarCoord", (DL_FUNC) &_SFEMsim_sphAnglesBarCoord, 3},
     {NULL, NULL, 0}
 };
 

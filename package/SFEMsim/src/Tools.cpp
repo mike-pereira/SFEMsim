@@ -28,3 +28,21 @@ double vecmin(NumericVector x) {
   return *it;
 }
 
+
+// [[Rcpp::export]]
+std::vector<int> argSort(const Eigen::ArrayXd& array) {
+  // Create a vector of indices
+  std::vector<int> indices(array.size());
+  for (int i = 0; i < indices.size(); ++i) {
+    indices[i] = i;
+  }
+  
+  // Sort the indices based on the values in the Eigen array
+  std::sort(indices.begin(), indices.end(),
+            [&array](int a, int b) { return array[a] < array[b]; });
+  
+  return indices;
+}
+
+
+
